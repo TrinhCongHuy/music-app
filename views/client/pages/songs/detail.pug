@@ -1,0 +1,29 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+block main
+    .singer-detail 
+        .container.my-3 
+            .row 
+                .col-12 
+                    .song-title #{song.title}
+                    .song-action 
+                        div(class="song-action song-time") <i class="fa-regular fa-clock"></i> 10/03/2024
+                        div(class="song-action song-singer") <i class="fa-solid fa-microphone-lines"></i> #{singer.fullName}
+                        div(class="song-action song-topic") <i class="fa-solid fa-music"></i> #{topic.title}
+                        div(class="song-action song-like") <i class="fa-solid fa-thumbs-up"></i> #{song.like}
+                        div(class="song-action song-heart") <i class="fa-regular fa-heart"></i> Bài hát yêu thích
+
+                    .song-play
+                        .song-avatar 
+                            img(src=song.avatar)
+                        .song-audio 
+                            div(id="aplayer" data-song=song data-singer=singer)
+                    
+                    .song-desc 
+                        .song-label Mô tả
+                        .song-text #{song.description}
+                    .song-desc 
+                        .song-label Lời bài hát
+                        .song-text !{song.lyrics}
+                    

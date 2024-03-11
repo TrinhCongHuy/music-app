@@ -1,0 +1,255 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ================ sidebar ================== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 256px;
+  min-height: 100vh;
+  background-color: #0e1920;
+}
+.logo {
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+.logo span {
+  font-size: 2em;
+  font-weight: 700;
+  background: linear-gradient(to right, #ee10b0, #0e9eef);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.content {
+  background-color: #412c3a;
+  padding: 0;
+}
+
+/* ================ header =================*/
+.header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(50px);
+}
+
+/* ============ box-head ============== */
+.box-head {
+  padding: 10px;
+}
+
+.inner-title {
+  background: linear-gradient(to right, #ee10b0, #0e9eef);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =============== TOPIC ================= */
+.col-3.mb-3 {
+  margin-bottom: 20px;
+}
+p {
+  margin-bottom: 0;
+}
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  height: 100%;
+}
+.card:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+/* Style the card body (title, description, and button) */
+.card-body {
+  padding: 8px;
+  line-height: 1.2;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+}
+.card-title {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+.card-text {
+  color: #555;
+  flex-grow: 1; 
+}
+
+.btn-primary {
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px; 
+  border-radius: 3px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+.btn-primary:hover {
+  background-color: #45a049; 
+}
+
+/* =============== SONGS =================*/
+.song-item {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  margin-bottom: 20px;
+}
+
+.song-item:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.song-image {
+  width: 150px;
+  overflow: hidden;
+}
+
+.song-image img {
+  width: 100%;
+  height: auto;
+}
+
+.song-content {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.song-title a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.song-singer,
+.song-like,
+.song-time,
+.song-topic,
+.song-heart {
+  margin-top: 6px;
+  color: #ffffff;
+}
+
+/* =========== Style the icons ============*/
+.song-singer i,
+.song-like i,
+.song-time i {
+  margin-right: 5px;
+  color: #ffffff;
+}
+
+/* =========== Style the icons ===============*/
+.song-action .song-singer i,
+.song-action .song-like i,
+.song-action .song-time i,
+.song-action .song-topic i {
+  color: #ffffff;
+}
+.song-action .song-heart i {
+  color: #c71919;
+}
+
+/* =========== SONG DETAIL ================= */
+.song-title {
+  font-size: 24px; 
+  font-weight: bold;
+  margin-bottom: 15px; 
+  background: linear-gradient(to right, #ee10b0, #0e9eef);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.song-action {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.song-action div {
+  margin-right: 20px;
+}
+
+.song-action i {
+  margin-right: 5px;
+}
+
+.song-play {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.song-avatar img {
+    max-width: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    animation: rotate 6s linear infinite;
+    -webkit-animation: rotate 6s linear infinite;
+    /* animation-play-state: paused; */
+    border: 3px solid #ee10b0;
+}
+
+@keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+.song-desc {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.song-label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #ee10b0, #0e9eef);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.song-text {
+  line-height: 1.5;
+}

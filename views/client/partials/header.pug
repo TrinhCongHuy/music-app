@@ -1,0 +1,30 @@
+header(class="header") 
+    .container 
+        .row.align-items-center 
+            .col-4
+                form(
+                    action='/search'
+                    method='GET'
+                )
+                    div(class="form-group d-flex mb-0")
+                        input(
+                            type="text"
+                            name="keyword"
+                            class="form-control"
+                            placeholder="Nhập từ khoá tìm kiếm..."
+                        )
+            
+            .col-8
+                .header-menu
+                    ul.menu-list.d-flex.m-0
+                        li.menu-list--item.mx-4
+                            a(href="/") About
+                        li.menu-list--item.mx-4
+                            a(href="/") Contact
+                        li.menu-list--item.mx-4
+                            a(href="/") Premium
+                        li.menu-list--item.mx-4
+                            a(href="/") Login
+                        li.menu-list--item.mx-4
+                            a(href="/") Sign Up
+                        
