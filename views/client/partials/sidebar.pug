@@ -1,3 +1,47 @@
 div(class="sidebar") 
     .logo 
         span Melodies
+
+    .header-menu
+        ul.menu-list 
+            li.menu-list--item.active
+                <i class="fa-solid fa-house-chimney"></i>
+                a(href="/") Home
+            li.menu-list--item
+                <i class="fa-regular fa-compass"></i>
+                a(href="/topics") Discover
+            li.menu-list--item
+                <i class="fa-solid fa-record-vinyl"></i>
+                a(href="#") Albums
+            li.menu-list--item
+                <i class="fa-regular fa-circle-user"></i>
+                a(href="#") Artists
+    
+    .header-library 
+        ul.menu-list 
+            li.menu-list--item
+                <i class="fa-regular fa-clock"></i>
+                a(href="#") Recently Added
+            li.menu-list--item
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                a(href="#") Most played
+ 
+    .header-playlist
+        ul.menu-list 
+            li.menu-list--item
+                <i class="fa-regular fa-heart"></i>
+                a(href="/favorite-songs") Your favorites
+            li.menu-list--item
+                <i class="fa-solid fa-music"></i>
+                a(href="#") Your playlist
+            li.menu-list--item
+                <i class="fa-regular fa-square-plus"></i>
+                a(href="#") Add playlist
+
+    .header-general
+        ul.menu-list 
+            li.menu-list--item
+                a(href="#") Setting
+            li.menu-list--item
+                a(href="#") Logout
+    

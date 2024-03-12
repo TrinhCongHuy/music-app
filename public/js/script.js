@@ -1,3 +1,4 @@
+// Play music in detail song
 const aplayer = document.querySelector("#aplayer")
 
 if (aplayer) {
@@ -26,4 +27,52 @@ if (aplayer) {
     ap.on('play', function () {
         songAvatar.style.animationPlayState = "running"
     });
+}
+
+// update like in detail song
+const buttonLike = document.querySelector("[button-like]")
+if (buttonLike) {
+    buttonLike.addEventListener("click", () => {
+        const idSong = buttonLike.getAttribute("button-like")
+        const isActive = buttonLike.classList.contains("active")
+
+        const typeLike = isActive ? "disLike" : "like"
+        
+        const link = `/songs/like/${typeLike}/${idSong}`
+
+        const option = {
+            method: "PATCH"
+        }
+        fetch(link, option)
+            .then(res => res.json())
+            .then(data => {
+                const span = buttonLike.querySelector('span')
+                span.innerHTML = `${data.like} lượt thích`
+                buttonLike.classList.toggle("active")
+            })
+    })
+}
+
+// update favorite in detail song
+const listButtonFavorite = document.querySelectorAll("[button-favorite]")
+if (listButtonFavorite) {
+    listButtonFavorite.forEach(buttonFavorite => {
+        buttonFavorite.addEventListener("click", () => {
+            const idSong = buttonFavorite.getAttribute("button-favorite")
+            const isActive = buttonFavorite.classList.contains("active")
+    
+            const typeFavorite = isActive ? "unfavorite" : "favorite"
+            
+            const link = `/songs/favorite/${typeFavorite}/${idSong}`
+    
+            const option = {
+                method: "PATCH"
+            }
+            fetch(link, option)
+                .then(res => res.json())
+                .then(data => {
+                    buttonFavorite.classList.toggle("active")
+                })
+        })
+    })
 }

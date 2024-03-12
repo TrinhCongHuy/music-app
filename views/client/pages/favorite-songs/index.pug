@@ -1,0 +1,25 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+block main
+    .favorite-songs
+        .container 
+            .row 
+                .col-12 
+                    +box-head(titlePage)
+            
+            .row 
+                each favoriteSong in favoriteSongs
+                    .col-12.mb-3 
+                        div(class="song-item")
+                            div(class="song-image")
+                                a(href=`/songs/detail/${favoriteSong.infoSong.slug}`)
+                                    img(src=favoriteSong.infoSong.avatar)
+                            div(class="song-content")
+                                div(class="song-info")
+                                    div(class="song-title")
+                                        a(href=`/songs/detail/${favoriteSong.infoSong.slug}`) #{favoriteSong.infoSong.title}
+                                    div(class="song-singer") #{favoriteSong.infoSinger.fullName} 
+                                div(class="song-category") #{favoriteSong.infoSong.title} (Single)
+                                div(class="song-action song-heart active" button-favorite=favoriteSong.songId) <i class="fa-regular fa-heart"></i> Love
+                                div(class="song-action song-time") <i class="fa-regular fa-clock"></i> Hôm nay
