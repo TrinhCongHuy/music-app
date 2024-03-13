@@ -1,5 +1,6 @@
 import express, { Express } from "express"
 import * as database from './config/database'
+import cors from "cors"
 import 'dotenv/config'
 import clientRoutes from './routes/client/index.route'
 
@@ -18,6 +19,7 @@ app.use(express.static('public'));
 app.set("views", "./views")
 app.set("view engine", "pug")
 
+app.use(cors())
 
 // client routes
 clientRoutes(app)

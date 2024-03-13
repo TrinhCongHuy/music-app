@@ -3,7 +3,7 @@ const router: Router = Router()
 
 import * as controller from "../../controllers/client/search.controller"
 
-router.get('/', controller.index)
+router.get('/:type', controller.index)
 
 
 export const searchRouter: Router = router

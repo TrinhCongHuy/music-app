@@ -11,6 +11,9 @@ router.patch('/like/:typeLike/:idSong', controller.like)
 
 router.patch('/favorite/:typeFavorite/:idSong', controller.favorite)
 
+router.patch('/listen/:idSong', controller.listen)
+
+
 
 
 

@@ -27,6 +27,20 @@ if (aplayer) {
     ap.on('play', function () {
         songAvatar.style.animationPlayState = "running"
     });
+
+    ap.on('ended', function () {
+        const link = `/songs/listen/${dataSong._id}`
+
+        const option = {
+            method: "PATCH"
+        }
+        fetch(link, option)
+            .then(res => res.json())
+            .then(data => {
+                const span = document.querySelector(".singer-detail .song-action .song-listen span")
+                span.innerHTML = `${data.listen} lượt nghe`
+            })
+    });
 }
 
 // update like in detail song
@@ -74,5 +88,56 @@ if (listButtonFavorite) {
                     buttonFavorite.classList.toggle("active")
                 })
         })
+    })
+}
+
+// form search suggest
+const formSearch = document.querySelector(".form-search")
+if(formSearch) {
+    const input = formSearch.querySelector("input[name='keyword']")
+    const formSuggest = formSearch.querySelector(".song-suggest")
+
+    input.addEventListener("keyup", () => {
+        const keyword = input.value
+
+        console.log(keyword)
+        
+        const link = `/search/suggest?keyword=${keyword}`
+
+        fetch(link)
+            .then(res => res.json())
+            .then(data => {
+                const songs = data.songs
+                console.log(songs)
+                if (songs.length > 0) {
+                    formSuggest.classList.add("show")
+
+                    const htmls = songs.map(song => {
+                        return `
+                            <a class="song-item" href="/songs/detail/${song.slug}">
+                                <div class="song-image">
+                                    <img src="${song.avatar}" >
+                                </div>
+                                <div class="song-info">
+                                    <div class="song-title">
+                                        ${song.title}
+                                    </div>
+                                    <div class="song-singer">
+                                        ${song.infoSinger.fullName}
+                                    </div>
+                                </div>
+                            </a>
+                        `
+                    })
+
+                    const songList = formSearch.querySelector(".song-list")
+                    songList.innerHTML = htmls.join("")
+                }else {
+                    formSuggest.classList.remove("show")
+                }
+            })
+    })
+    input.addEventListener("blur", () => {
+        formSuggest.classList.remove("show")
     })
 }

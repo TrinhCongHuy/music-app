@@ -12,6 +12,7 @@ block main
                         div(class="song-action song-singer") <i class="fa-solid fa-microphone-lines"></i> #{singer.fullName}
                         div(class="song-action song-topic") <i class="fa-solid fa-music"></i> #{topic.title}
                         div(class="song-action song-like" button-like=song.id) <i class="fa-solid fa-thumbs-up"></i> <span>#{song.like} lượt thích</span>
+                        div(class="song-action song-listen") <i class="fa-solid fa-headphones"></i></i> <span>#{song.listen} lượt nghe</span>
                         div(class=("song-action song-heart " + (song.isFavoriteSong ? "active" : "")) button-favorite=song.id) <i class="fa-regular fa-heart"></i> Bài hát yêu thích
 
                     .song-play
