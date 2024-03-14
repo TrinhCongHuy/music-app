@@ -57,6 +57,25 @@ block main
                 upload-image-preview
                 class="image-preview mt-3"
             )
+        
+        div(
+            class="form-group"
+            upload-audio
+            )
+            label(for="audio") File âm thanh
+            input(
+                id="audio"
+                type="file"
+                class="form-control-file"
+                name="audio"
+                accept="audio/*"
+                upload-audio-input
+            ) 
+            audio(
+                controls
+                upload-audio-play
+            )
+                source(src="")
 
         div(class="form-group")
             label(for="description") Mô tả
