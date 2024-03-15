@@ -1,0 +1,24 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+block main
+    .favorite-songs
+        .container 
+            .row 
+                .col-12 
+                    +box-head(titlePage)
+
+            .row 
+                each song in songs
+                    .col-12.mb-3 
+                        div(class="song-item")
+                            div(class="song-image")
+                                a(href=`/songs/detail/${song.slug}`)
+                                    img(src=song.avatar)
+                            div(class="song-content")
+                                div(class="song-info")
+                                    div(class="song-title")
+                                        a(href=`/songs/detail/${song.slug}`) #{song.title}
+                                    div(class="song-singer") #{song.infoSinger.fullName} 
+                                div(class="song-category") #{song.title} (Single)
+                                div(class="song-action song-time") <i class="fa-regular fa-clock"></i> Hôm nay

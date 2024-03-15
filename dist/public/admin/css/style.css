@@ -1,0 +1,315 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  ul {
+    list-style: none;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  /* ================ sidebar ================== */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 256px;
+    min-height: 100vh;
+    background-color: #0e1920;
+    overflow-y: auto;
+  }
+  
+  .sidebar::-webkit-scrollbar {
+    width: 12px; 
+  }
+  
+  .sidebar::-webkit-scrollbar-thumb {
+    background-color: #4CAF50; 
+    border-radius: 10px;
+  }
+  
+  .sidebar::-webkit-scrollbar-track {
+    background-color: #ccc;
+  }
+  
+  .logo {
+    padding: 25px;
+  }
+  .logo span {
+    font-size: 2em;
+    font-weight: 700;
+    background: linear-gradient(to right, #ee10b0, #0e9eef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .main {
+    padding: 10px 15px;
+  }
+  
+  .content {
+    background-color: #ffffff;
+    padding: 0;
+  }
+  
+  .header-menu, .header-library, .header-playlist, .header-general {
+    padding: 0 20px;
+  }
+  .sidebar .menu-list {
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  }
+  
+  .sidebar .menu-list--item {
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sidebar .menu-list--item i {
+    color: #ffffff;
+  }
+  
+  .sidebar .menu-list--item.active {
+    border: 2px solid #ee10b0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: rgba(255, 55, 128, 0.4);
+  }
+  
+  .sidebar .menu-list--item a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 8px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  
+  /* ================ header =================*/
+  .header {
+    height: 100px;
+    display: flex;
+    background-color: #262626;
+    align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* background-color: rgba(0, 0, 0, 0.1); */
+    backdrop-filter: blur(50px);
+  }
+  
+  .header form {
+    position: relative;
+  }
+  .header form input {
+    line-height: 3.25em;
+    padding: 0 7em 0 4.5em;
+    border: none;
+    outline: none;
+    width: 100%;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    font-weight: var(--fw3);
+    font-size: 0.9em;
+    overflow: hidden;
+    flex: 1;
+  }
+  .header form :where(span, button) {
+    position: absolute;
+    top: 0;
+    padding: 6px 20px;
+    height: 100%;
+    font-size: 1em;
+    color: #777;
+  }
+  .header form button {
+    right: 0;
+    border: 0;
+    color: #ffffff;
+    background-color: #766f6f;
+    border-radius: 0 7px 7px 0;
+    -webkit-border-radius: 0 7px 7px 0;
+    -moz-border-radius: 0 7px 7px 0;
+    -ms-border-radius: 0 7px 7px 0;
+    -o-border-radius: 0 7px 7px 0;
+    transition: background-color .3s, color .3s;
+    -webkit-transition: background-color .3s, color .3s;
+    -moz-transition: background-color .3s, color .3s;
+    -ms-transition: background-color .3s, color .3s;
+    -o-transition: background-color .3s, color .3s;
+  }
+  .header form button:hover {
+    background-color: #565455;
+  }
+  
+  .header .menu-list--item {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+  }
+  
+  .header .header-menu {
+    padding: 0 20px;
+  }
+  .header .menu-list {
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+  }
+  .header .menu-list--item.logout,
+  .header .menu-list--item.user {
+    padding: 5px 20px;
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    font-size: 0.9em;
+    font-weight: 600;
+  }
+  .header .menu-list--item.user a {
+    color: #ee10b0;
+  }
+  .header .menu-list--item.logout {
+    background-color: rgba(255, 55, 128, 0.4);
+    border: 2px solid #ee10b0;
+  }
+  .header .menu-list--item a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    /*padding: 8px;
+    */font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+  }
+  .header .menu-list--item a:hover {
+    color: #ee10b0;
+  }
+  
+  .header .song-suggest {
+    position: absolute;
+    padding: 10px;
+    width: 475px;
+    /* width: inherit; */
+    left: 0;
+    background-color: #5b4553;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    display: none;
+  }
+  .header .song-suggest.show {
+    display: block;
+  }
+  .header .song-item .song-image{
+      width: 60px;
+      height: 60px;
+  }
+  .header .song-item .song-info {
+    padding-left: 15px;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header .song-item .song-info .song-singer {
+    margin: 0;
+    font-size: 0.8em;
+  }
+  .header .song-item .song-info .song-title {
+    margin: 0;
+    font-size: 1.1em;
+  }
+  .header .song-item:hover {
+    transform: scale(1.02);
+  }
+  
+  .header .song-item {
+    transition: transform 0.2s ease-in-out;
+    margin-bottom: 10px;
+  }
+
+/* Style trang danh sách chủ đề */
+
+/* Header styles */
+.card-header {
+  background-color: #f8f9fa;
+  padding: 10px;
+  font-size: 1.3em;
+}
+
+/* Table header styles */
+thead tr {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Table cell styles */
+td, th {
+  text-align: center;
+}
+td img {
+  object-fit: cover;
+}
+
+/* Status badge styles */
+.badge-success {
+  background-color: #28a745;
+  color: #ffffff;
+}
+
+.badge-danger {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+
+
+/* preview image */
+.image-preview {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 5;
+  border: 1px solid #c6c3c3;
+}
+.image-preview[src=""] {
+  display: none;
+}
+
+
+/* song */
