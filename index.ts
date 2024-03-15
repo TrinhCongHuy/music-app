@@ -3,6 +3,7 @@ import * as database from './config/database'
 import cors from "cors"
 import path from "path"
 import 'dotenv/config'
+import methodOverride from 'method-override'
 import clientRoutes from './routes/client/index.route'
 import adminRoutes from "./routes/admin/index.route"
 import { systemConfig } from "./config/config"
@@ -14,6 +15,7 @@ app.locals.prefixAdmin = systemConfig.prefixAdmin
 
 database.connect()
 
+app.use(methodOverride('_method'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
