@@ -3,22 +3,28 @@ include ../../mixins/box-head.pug
 
 block main
     .container 
-        .row 
-            .col-12 
-                +box-head(titlePage)
-
-        .row 
-            each song in songs
-                .col-6.mb-3 
-                    div(class="song-item")
-                        div(class="song-image")
-                            a(href=`/songs/detail/${song.slug}`)
-                                img(src=song.avatar)
-                        div(class="song-content")
-                            div(class="song-title")
-                                a(href=`/songs/detail/${song.slug}`) #{song.title}
-                            div(class="song-singer") <i class="fa-solid fa-microphone-lines"></i> #{song.infoSinger.fullName}
-                            div(class="song-like") <i class="fa-solid fa-thumbs-up"></i> #{song.like}
-                            div(class="song-time") <i class="fa-regular fa-clock"></i> Hôm nay
-            
-                        
+        .page-topic-detail
+            .row.mt-3
+                .col-4 
+                    .media 
+                        .card-image 
+                            img(src=topic.avatar)
+                        .card-content 
+                            h3.title #{topic.title}
+                            div.description !{topic.description}
+                .col-8
+                    each song in songs
+                        .col-12.mb-3 
+                            div(class="song-item")
+                                div(class="song-image")
+                                    a(href=`/songs/detail/${song.slug}`)
+                                        img(src=song.avatar)
+                                div(class="song-content")
+                                    div(class="song-info")
+                                        div(class="song-title")
+                                            a(href=`/songs/detail/${song.slug}`) #{song.title}
+                                        div(class="song-singer") #{song.infoSinger.fullName}
+                                    div(class="album-info") #{song.title} (Single)
+                                    div(class="song-time") <i class="fa-regular fa-clock"></i> Hôm nay
+                
+                            

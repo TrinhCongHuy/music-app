@@ -1,37 +1,14 @@
 header(class="header") 
     .container 
-        .row.align-items-center 
+        .row.align-items-center
             .col-5
-                .form-search
-                    form(
-                        action='/search/result'
-                        method='GET'
-                    )
-                        div(class="form-group d-flex mb-0")
-                            <span class="icon-large">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </span>
-                            input(
-                                type="text"
-                                name="keyword"
-                                class="form-control"
-                                autocomplete="off"
-                                placeholder="Nhập từ khoá tìm kiếm..."
-                            )
-                            <button type="submit" class="submit">Search</button>
                     
                 
             .col-7
                 .header-menu
-                    ul.menu-list.d-flex.m-0
-                        li.menu-list--item
-                            a(href="/") About
-                        li.menu-list--item
-                            a(href="/") Contact
-                        li.menu-list--item
-                            a(href="/") Premium
+                    ul.menu-list.d-flex.m-0.float-right
                         li.menu-list--item.user
-                            a(href=`/${prefixAdmin}/my-account`) Huy
+                            a(href=`/${prefixAdmin}/my-account`) #{role.title}
                         li.menu-list--item.logout
                             a(href=`/${prefixAdmin}/auth/logout`) Logout
                             

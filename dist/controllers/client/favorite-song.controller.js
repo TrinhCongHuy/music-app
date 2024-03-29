@@ -16,8 +16,15 @@ exports.index = void 0;
 const favorite_song_model_1 = __importDefault(require("../../models/favorite-song.model"));
 const song_model_1 = __importDefault(require("../../models/song.model"));
 const singer_model_1 = __importDefault(require("../../models/singer.model"));
+const user_model_1 = __importDefault(require("../../models/user.model"));
 const index = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const tokenUser = req.cookies.tokenUser;
+    const user = yield user_model_1.default.findOne({
+        tokenUser: tokenUser,
+        deleted: false
+    });
     const favoriteSongs = yield favorite_song_model_1.default.find({
+        userId: user.id,
         deleted: false
     });
     for (const song of favoriteSongs) {

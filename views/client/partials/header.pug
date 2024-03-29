@@ -1,7 +1,17 @@
 header(class="header") 
-    .container 
-        .row.align-items-center 
-            .col-5
+    .container-lg
+        <!-- menu mobile -->
+        aside.site-off.desktop-hide
+            .off-canvas
+                .canvas-head.flexitem
+                    a(href="#" class="t-close flexcenter")
+                        <i class="fa-solid fa-xmark"></i>
+                .departments
+        .row.align-items-center.justify-content-between
+            .col-4.d-flex.align-items-center
+                a(href="#" class="trigger desktop-hide")
+                    span
+                        <i class="fa-solid fa-bars-staggered"></i>
                 .form-search
                     form(
                         action='/search/result'
@@ -37,7 +47,7 @@ header(class="header")
                                     
                             
                 
-            .col-7
+            .col-8
                 .header-menu
                     ul.menu-list.d-flex.m-0
                         li.menu-list--item
@@ -46,8 +56,17 @@ header(class="header")
                             a(href="/") Contact
                         li.menu-list--item
                             a(href="/") Premium
-                        li.menu-list--item.login
-                            a(href="/") Login
-                        li.menu-list--item.sing-up
-                            a(href="/") Sign Up
+                        if(user)
+                            li.menu-list--item.info
+                                a(class="" href='/user/infoUser') #{user.fullName}
+                            li.menu-list--item.infoUser
+                                a(href='/user/infoUser' title=user.fullName)
+                                    img(src=user.avatar)
+                        else 
+                            .menu-action.d-flex
+                                li.menu-list--item.login
+                                    a(href="/user/login") Login
+                                li.menu-list--item.sing-up
+                                    a(href="/user/register") Sign Up
+                        
                             

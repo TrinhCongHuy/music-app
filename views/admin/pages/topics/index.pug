@@ -1,5 +1,7 @@
 extends ../../layouts/default.pug
 include ../../mixins/filterStatus.pug
+include ../../mixins/pagination.pug
+
 
 block main
     .card.mt-2
@@ -18,7 +20,7 @@ block main
                     //- +formChangeMulti(`${prefixAdmin}/products/change-multi?_method=PATCH`)
                 .col-4 
                     a(
-                        href=`${prefixAdmin}/topics/create`
+                        href=`/${prefixAdmin}/topics/create`
                         class="btn btn-outline-success"
                     ) + Thêm mới
 
@@ -40,7 +42,7 @@ block main
                         tr  
                             td 
                                 input(type="checkbox" name="id" value=item.id)
-                            td #{index+1}
+                            td #{pagination.limitItems*(pagination.currentPage - 1) + (index + 1)}
                             td 
                                 img(src=item.avatar, 
                                 alt=item.title, width="80px", height="50px")
@@ -63,28 +65,28 @@ block main
                                         button-change-status
                                     ) Dừng hoạt động
                             td 
-                                a(href=`${prefixAdmin}/topics/edit/${item.id}` class="btn btn-warning btn-sm") Sửa
-                                a(href=`${prefixAdmin}/topics/detail/${item.id}` class="btn btn-secondary btn-sm mx-2") Chi tiết
+                                a(href=`/${prefixAdmin}/topics/edit/${item.id}` class="btn btn-warning btn-sm") Sửa
+                                a(href=`/${prefixAdmin}/topics/detail/${item.id}` class="btn btn-secondary btn-sm mx-2") Chi tiết
                                 button(
                                     type="button" 
                                     class="btn btn-danger btn-sm"
                                     button-delete 
                                     data-id=item.id
                                 ) Xoá 
-    //- +pagination(pagination)
+    +pagination(pagination)
 
     form(
         action=""
         method="POST"
         id="form-change-status"
-        data-path=`${prefixAdmin}/topics/change-status`
+        data-path=`/${prefixAdmin}/topics/change-status`
     )
 
     form(
         action=""
         method="POST"
         id="form-delete-item"
-        data-path=`${prefixAdmin}/topics/delete`
+        data-path=`/${prefixAdmin}/topics/delete`
     )
 
 

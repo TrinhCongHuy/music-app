@@ -41,7 +41,7 @@
   }
   
   .logo {
-    padding: 25px;
+    padding: 25px 25px 25px 35px;
   }
   .logo span {
     font-size: 2em;
@@ -76,6 +76,11 @@
     padding-left: 10px;
     display: flex;
     align-items: center;
+    transition: background-color 1.3s ease;
+    -webkit-transition: background-color 1.3s ease;
+    -moz-transition: background-color 1.3s ease;
+    -ms-transition: background-color 1.3s ease;
+    -o-transition: background-color 1.3s ease;
   }
   
   .sidebar .menu-list--item i {
@@ -105,15 +110,14 @@
   
   /* ================ header =================*/
   .header {
-    height: 100px;
+    height: 60px;
     display: flex;
-    background-color: #262626;
     align-items: center;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* background-color: rgba(0, 0, 0, 0.1); */
+    background-color: #0e1920;
     backdrop-filter: blur(50px);
   }
   
@@ -288,12 +292,10 @@ td img {
   background-color: #28a745;
   color: #ffffff;
 }
-
 .badge-danger {
   background-color: #dc3545;
   color: #ffffff;
 }
-
 
 /* preview image */
 .image-preview {
@@ -311,5 +313,83 @@ td img {
   display: none;
 }
 
-
 /* song */
+
+
+/* ========== main-auth =============== */
+.main-auth {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #ee10b0, #0e9eef);
+}
+
+.page-auth {
+  border-radius: 10px;
+  width: 500px;
+  background-color: rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.page-auth .title {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+.page-auth label {
+  color: #ada6a6;
+}
+.page-auth button {
+  width: 150px;
+  margin: 0 auto;
+}
+
+.page-dashboard-admin {
+  padding: 20px;
+}
+
+.title {
+  font-size: 24px; 
+  margin-bottom: 20px; 
+}
+
+.box-statistical {
+  background-color: #f5f5f5; 
+  border: 1px solid #ddd; 
+  padding: 15px; 
+  border-radius: 5px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.box-content {
+  margin-bottom: 10px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.box-content .content-title {
+  font-size: 20px; 
+  color: #333; 
+  font-weight: 600;
+}
+
+.box-content span {
+  font-size: 16px;
+  color: #8f9091; 
+  font-weight: bold; 
+}
+
+/* =========== pagination ============ */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

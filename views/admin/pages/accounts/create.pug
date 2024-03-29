@@ -1,0 +1,100 @@
+extends ../../layouts/default.pug
+
+block main 
+
+    h1(class="mb-5") Thêm mới tài khoản
+
+    form(
+        action=`/${prefixAdmin}/accounts/create`
+        method="POST"
+        enctype="multipart/form-data"
+    )
+        div(class="form-group")
+            label(for="fullName") Họ tên *
+            input(
+                id="fullName"
+                type="text"
+                class="form-control"
+                name="fullName"
+                require
+            ) 
+        div(class="form-group")
+            label(for="email") Email *
+            input(
+                id="email"
+                type="text"
+                class="form-control"
+                name="email"
+                require
+            ) 
+        div(class="form-group")
+            label(for="phone") Số điện thoại
+            input(
+                id="phone"
+                type="text"
+                class="form-control"
+                name="phone"
+                require
+            ) 
+        div(class="form-group")
+            label(for="password") Mật khẩu *
+            input(
+                id="password"
+                type="text"
+                class="form-control"
+                name="password"
+                require
+            ) 
+        div(
+            class="form-group"
+            upload-image
+            )
+            label(for="avatar") Hình ảnh
+            input(
+                id="avatar"
+                type="file"
+                class="form-control-file"
+                name="avatar"
+                accept="image/*"
+                upload-image-input
+            ) 
+            img(
+                src=""
+                upload-image-preview
+                class="image-preview mt-3"
+            )
+        div(class="form-group")
+            label(for="role") Phân quyền
+            select(
+                id="role"
+                class="form-control"
+                name="role_id"
+            )
+                option(value="" selected default) -- Chọn quyền --
+                each role in roles 
+                    option(value=role.id) #{role.title}
+
+        div(class="form-group form-check form-check-inline")
+            input(
+                id="statusActive"
+                type="radio"
+                class="form-check-input"
+                name="status"
+                value="active"
+                checked
+            ) 
+            label(for="statusActive" class="form-check-label") Hoạt động
+        div(class="form-group form-check form-check-inline")
+            input(
+                id="statusInActive"
+                type="radio"
+                class="form-check-input"
+                name="status"
+                value="inactive"
+            ) 
+            label(for="statusInActive" class="form-check-label") Dừng hoạt động
+        div(class="form-group")
+            button(
+                type="submit"
+                class="btn btn-primary"
+            ) Tạo mới

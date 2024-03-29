@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
+import slug from 'mongoose-slug-updater'
+mongoose.plugin(slug)
 
 const singerSchema = new mongoose.Schema({  
     fullName: String,
     avatar: String,
     status: String,
-    slug: String,
+    slug: { type: String, slug: "fullName" },
     deleted: {
         type: Boolean,
         default: false

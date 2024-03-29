@@ -22,10 +22,22 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.topicRouter = void 0;
 const express_1 = require("express");
+const multer_1 = __importDefault(require("multer"));
 const router = (0, express_1.Router)();
+const upload = (0, multer_1.default)();
 const controller = __importStar(require("../../controllers/admin/topic.controller"));
-router.get('/', controller.index);
+const uploadCloud = __importStar(require("../../middleware/admin/uploadCloud.middleware"));
+router.get("/", controller.index);
+router.get("/create", controller.create);
+router.patch("/change-status/:status/:id", controller.changeStatus);
+router.post("/create", upload.single("avatar"), uploadCloud.uploadSingle, controller.createPost);
+router.get("/edit/:id", controller.edit);
+router.patch("/edit/:id", upload.single("avatar"), uploadCloud.uploadSingle, controller.editPatch);
+router.delete("/delete/:id", controller.deleteItem);
 exports.topicRouter = router;

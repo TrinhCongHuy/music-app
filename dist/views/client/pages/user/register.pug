@@ -1,0 +1,55 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+
+block main
+    .container.my-5
+        .row.justify-content-center
+            .col-6.page-register
+                h1(class="text-center") Đăng ký tài khoản 
+                form(
+                    action="/user/register"
+                    method="POST"
+                ) 
+                    div(class="form-group")
+                        label(for="fullName") Họ tên 
+                        input(
+                            class="form-control"
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            require
+                        ) 
+                    div(class="form-group")
+                        label(for="email") Email 
+                        input(
+                            class="form-control"
+                            type="text"
+                            id="email"
+                            name="email"
+                            require
+                        ) 
+                    div(class="form-group")
+                        label(for="password") Mật khẩu
+                        input(
+                            class="form-control"
+                            type="password"
+                            id="password"
+                            name="password"
+                            require
+                        ) 
+                    div(class="form-group")
+                        label(for="confirmPassword") Xác thực mật khẩu
+                        input(
+                            class="form-control"
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            require
+                        ) 
+                    div(class="form-group float-right")
+                        button(
+                            type="text"
+                            class="btn btn-primary btn-block"
+                        ) Đăng ký
+        

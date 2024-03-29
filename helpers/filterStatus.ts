@@ -4,7 +4,7 @@ export interface FilterOption {
     class: string;
 }
 
-export const getFilterOptions = (query: { status?: string }): FilterOption[] => {
+const filterStatusHelper = (query: { status?: string }): FilterOption[] => {
     let filterStatus: FilterOption[] = [
         {
             name: 'Tất cả',
@@ -33,3 +33,6 @@ export const getFilterOptions = (query: { status?: string }): FilterOption[] => 
 
     return filterStatus;
 };
+
+
+export default filterStatusHelper;

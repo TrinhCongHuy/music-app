@@ -1,0 +1,47 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+block main
+    .container-lg
+        .home
+            .row 
+                .col-12 
+                    .home-banner 
+                        swiper-container(class="mySwiper" pagination="true" autoplay='{"delay": 3000}' speed="800" effect="coverflow" grab-cursor="true" centered-slides="true"
+                        slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+                        coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true")
+                            swiper-slide
+                                img(src="https://photo-zmp3.zmdcdn.me/cover/4/c/e/3/4ce340ab85a78bf354eaa5affa7763e1.jpg")
+                            swiper-slide
+                                img(src="https://photo-zmp3.zmdcdn.me/cover/3/f/4/1/3f41f32d1ca9baeb2206137e5f2eab5c.jpg")
+                            swiper-slide
+                                img(src="https://static-zmp3.zadn.vn/skins/zmp3-v6.1/images/thumb-share.jpg")
+            
+            .row
+                .col-12 
+                    +box-head("Chủ đề")
+            .row 
+                each topic in topics
+                    .col-xl-2.col-lg-3.col-md-3.col-sm-4.col-6.mb-3 
+                        a(class="topic" href=`/songs/${topic.slug}`)
+                            .card-image
+                                img(src=topic.avatar)
+                            h5(class="topic-title") #{topic.title}
+            .row 
+                .col-12 
+                    +box-head("Top nhạc hot")
+            .row 
+                .col-12 
+                    each song in songs
+                        .col-12.mb-3 
+                            div(class="song-item")
+                                div(class="song-image")
+                                    a(href=`/songs/detail/${song.slug}`)
+                                        img(src=song.avatar)
+                                div(class="song-content")
+                                    div(class="song-info")
+                                        div(class="song-title")
+                                            a(href=`/songs/detail/${song.slug}`) #{song.title}
+                                        div(class="song-singer") #{song.infoSinger.fullName}
+                                    div(class="album-info") #{song.title} (Single)
+                                    div(class="song-time") <i class="fa-regular fa-clock"></i> Hôm nay

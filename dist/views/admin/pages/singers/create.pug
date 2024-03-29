@@ -1,0 +1,64 @@
+extends ../../layouts/default.pug
+
+block main 
+
+    h1(class="mb-5") Thêm mới ca sĩ
+
+    form(
+        action=`/${prefixAdmin}/singers/create`
+        method="POST"
+        enctype="multipart/form-data"
+    )
+        div(class="form-group")
+            label(for="fullName") Tên
+            input(
+                id="fullName"
+                type="text"
+                class="form-control"
+                name="fullName"
+                require
+            ) 
+     
+        div(
+            class="form-group"
+            upload-image
+            )
+            label(for="avatar") Hình ảnh
+            input(
+                id="avatar"
+                type="file"
+                class="form-control-file"
+                name="avatar"
+                accept="image/*"
+                upload-image-input
+            ) 
+            img(
+                src=""
+                upload-image-preview
+                class="image-preview mt-3"
+            )
+        
+        div(class="form-group form-check form-check-inline")
+            input(
+                id="statusActive"
+                type="radio"
+                class="form-check-input"
+                name="status"
+                value="active"
+                checked
+            ) 
+            label(for="statusActive" class="form-check-label") Hoạt động
+        div(class="form-group form-check form-check-inline")
+            input(
+                id="statusInActive"
+                type="radio"
+                class="form-check-input"
+                name="status"
+                value="inactive"
+            ) 
+            label(for="statusInActive" class="form-check-label") Dừng hoạt động
+        div(class="form-group")
+            button(
+                type="submit"
+                class="btn btn-primary"
+            ) Tạo mới

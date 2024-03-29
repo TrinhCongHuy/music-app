@@ -29,7 +29,7 @@ const router = (0, express_1.Router)();
 const controller = __importStar(require("../../controllers/client/song.controller"));
 router.get('/:slugTopic', controller.list);
 router.get('/detail/:slugSong', controller.detail);
-router.patch('/like/:typeLike/:idSong', controller.like);
+router.patch('/like/:idSong', controller.like);
 router.patch('/favorite/:typeFavorite/:idSong', controller.favorite);
 router.patch('/listen/:idSong', controller.listen);
 exports.songRouter = router;

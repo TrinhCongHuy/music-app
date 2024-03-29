@@ -1,0 +1,30 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head.pug
+
+
+block main
+    .container.my-5
+        .page-info
+
+            .row.justify-content-center
+                .col-8.my-3
+                    h1(class="text-center") Thông tin cá nhân
+            
+            .row 
+                .col-4 
+                    .info-image 
+                        img(src=user.avatar)
+                    .info-edit  
+                        a(href=`/user/infoUser/edit/${user.id}`) Edit
+                            <i class="fa-regular fa-pen-to-square"></i>
+                .col-8.d-flex.justify-content-center
+                    .info-content 
+                        .info-title 
+                            .info-name Họ và tên:
+                            span #{user.fullName}
+                        .info-title 
+                            .info-name Email:
+                            span #{user.email}
+                        .info-title 
+                            .info-name Số điện thoại:
+                            span #{user.phone}

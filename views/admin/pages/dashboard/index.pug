@@ -1,5 +1,25 @@
 extends ../../layouts/default.pug
 
 block main
+    .page-dashboard-admin
+        .container-fluid
+            div.title Tổng quan 
+            
+            .row.mt-2.mx-0
+                .col-6.box-statistical.custom-col-margin
+                    .row 
+                        .col-6
+                            .box-content 
+                                div.content-title Tổng bài hát
+                                span #{countSong} bài hát
+                        .col-6
+                            .box-content 
+                                div.content-title Tổng ca sĩ
+                                span #{countSinger} ca sĩ
+                        .col-6
+                            .box-content 
+                                div.content-title Tổng chủ đề
+                                span #{countTopic} chủ đề
+                .col-6.box-statistical.custom-col-margin
 
-    h1 Trang dashboard
+

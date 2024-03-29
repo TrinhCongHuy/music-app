@@ -31,24 +31,41 @@ const database = __importStar(require("./config/database"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
 require("dotenv/config");
+const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const method_override_1 = __importDefault(require("method-override"));
 const index_route_1 = __importDefault(require("./routes/client/index.route"));
 const index_route_2 = __importDefault(require("./routes/admin/index.route"));
 const config_1 = require("./config/config");
+const passport_1 = __importDefault(require("passport"));
+const passport_2 = require("./config/passport");
+const express_session_1 = __importDefault(require("express-session"));
+const moment_1 = __importDefault(require("moment"));
 const app = (0, express_1.default)();
 const port = process.env.PORT || 3000;
 app.locals.prefixAdmin = config_1.systemConfig.prefixAdmin;
+app.locals.moment = moment_1.default;
 database.connect();
 app.use((0, method_override_1.default)('_method'));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
+app.use((0, express_session_1.default)({
+    secret: 'mysecret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { secure: false }
+}));
+app.use(passport_1.default.initialize());
+app.use(passport_1.default.session());
 app.use(express_1.default.static(`${__dirname}/public`));
+app.use((0, cookie_parser_1.default)());
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
 app.use('/tinymce', express_1.default.static(path_1.default.join(__dirname, 'node_modules', 'tinymce')));
 app.use((0, cors_1.default)());
 (0, index_route_2.default)(app);
 (0, index_route_1.default)(app);
+(0, passport_2.configLoginWithGG)();
+(0, passport_2.configLoginWithFB)();
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });

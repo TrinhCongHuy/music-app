@@ -1,0 +1,46 @@
+extends ../../layouts/default.pug
+
+
+block main 
+    .container.my-5
+        .row.justify-content-center
+            .col-6.page-login
+                h1(class="text-center") Đăng nhập tài khoản 
+                form(
+                    action="/user/login"
+                    method="POST"
+                ) 
+                    div(class="form-group")
+                        label(for="email") Email *
+                        input(
+                            class="form-control"
+                            type="text"
+                            id="email"
+                            name="email"
+                            require
+                        ) 
+                    div(class="form-group")
+                        label(for="password") Mật khẩu *
+                        input(
+                            class="form-control"
+                            type="text"
+                            id="password"
+                            name="password"
+                            require
+                        ) 
+                    div(class="form-group float-right")
+                        button(
+                            type="text"
+                            class="btn btn-primary btn-block"
+                        ) Đăng nhập
+
+                a(class="forgot-password" href='/user/password/forgot') Quên mật khẩu!
+
+                .socials.text-center.mt-5 
+                    a(href="/auth/google")
+                        img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" title="Login with google")
+                        //- <i class="fa-brands fa-google gg" title="Login with google"></i>
+                    a(href="/auth/facebook")
+                        img(src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Facebook-icon-1.png/768px-Facebook-icon-1.png" title="Login with facebook")
+                        //- <i class="fa-brands fa-facebook fb" title="Login with facebook"></i>
+        

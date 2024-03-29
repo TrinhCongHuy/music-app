@@ -10,6 +10,9 @@ router.get("/", controller.index);
 
 router.get("/create", controller.create);
 
+router.patch("/change-status/:status/:id", controller.changeStatus);
+
+
 router.post(
   "/create",
   upload.fields([
@@ -31,5 +34,7 @@ router.patch(
   uploadCloud.uploadFields,
   controller.editPatch
 );
+
+router.delete("/delete/:id", controller.deleteItem);
 
 export const songRouter: Router = router;

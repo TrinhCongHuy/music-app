@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFilterOptions = void 0;
-const getFilterOptions = (query) => {
+const filterStatusHelper = (query) => {
     let filterStatus = [
         {
             name: 'Tất cả',
@@ -29,4 +28,4 @@ const getFilterOptions = (query) => {
     }
     return filterStatus;
 };
-exports.getFilterOptions = getFilterOptions;
+exports.default = filterStatusHelper;

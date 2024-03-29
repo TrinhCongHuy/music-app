@@ -4,33 +4,33 @@ div(class="sidebar")
 
     .header-menu
         ul.menu-list 
-            li.menu-list--item.active
+            li(class="menu-list--item" data-href=`/${prefixAdmin}/dashboard`)
                 <i class="fa-solid fa-house-chimney"></i>
                 a(href=`/${prefixAdmin}/dashboard`) Tổng quan
-            li.menu-list--item
+            li(class="menu-list--item" data-href=`/${prefixAdmin}/topics`)
                 <i class="fa-solid fa-palette"></i>
                 a(href=`/${prefixAdmin}/topics`) Quản lý chủ đề
-            li.menu-list--item
+            li(class="menu-list--item" data-href=`/${prefixAdmin}/songs`)
                 <i class="fa-solid fa-file-audio"></i>
                 a(href=`/${prefixAdmin}/songs`) Quản lý bài hát
-            li.menu-list--item
+            li(class="menu-list--item" data-href=`/${prefixAdmin}/singers`)
                 <i class="fa-regular fa-circle-user"></i>
                 a(href=`/${prefixAdmin}/singers`) Quản lý ca sĩ
-            li.menu-list--item
+            li(class="menu-list--item" data-href=`/${prefixAdmin}/roles`)
                 <i class="fa-regular fa-compass"></i>
-                a(href=`/${prefixAdmin}/roles/permisstions`) Phân quyền
-            li.menu-list--item
+                a(href=`/${prefixAdmin}/roles`) Nhóm quyền
+            li(class="menu-list--item" data-href=`/${prefixAdmin}/roles/permissions`)
+                <i class="fa-regular fa-compass"></i>
+                a(href=`/${prefixAdmin}/roles/permissions`) Phân quyền
+            li(class="menu-list--item" data-href=`/${prefixAdmin}/accounts`)
                 <i class="fa-solid fa-user-tie"></i>
                 a(href=`/${prefixAdmin}/accounts`) Tài khoản admin
-            li.menu-list--item
+            li(class="menu-list--item" data-href=`/${prefixAdmin}/users`)
                 <i class="fa-solid fa-users"></i>
                 a(href=`/${prefixAdmin}/users`) Tài khoản user
-            li.menu-list--item
+            li(class="menu-list--item" data-href=`/${prefixAdmin}/settings/general`)
                 <i class="fa-solid fa-gear"></i>
                 a(href=`/${prefixAdmin}/settings/general`) Cài đặt chung
-            li.menu-list--item
-                <i class="fa-solid fa-right-from-bracket"></i>
-                a(href=`/${prefixAdmin}/logout`) Đăng xuất
     
  
 

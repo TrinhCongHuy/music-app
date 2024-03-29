@@ -1,0 +1,88 @@
+extends ../../layouts/default.pug
+
+
+block main
+    .container.my-5
+        .page-update-info
+            .row.justify-content-center
+                .col-6
+                    h1(class="text-center") Chỉnh sửa thông tin
+                    form(
+                        action=`/user/infoUser/edit/${user.id}?_method=PATCH`
+                        method="POST"
+                        enctype="multipart/form-data"
+                    ) 
+                        div(class="form-group")
+                            label(for="fullName") Họ tên 
+                            input(
+                                class="form-control"
+                                type="text"
+                                id="fullName"
+                                name="fullName"
+                                value=user.fullName
+                                require
+                            ) 
+                        div(
+                            class="form-group"
+                            upload-image
+                            )
+                            label(for="avatar") Hình ảnh
+                            input(
+                                id="avatar"
+                                type="file"
+                                class="form-control-file"
+                                name="avatar"
+                                accept="image/*"
+                                upload-image-input
+                            ) 
+                            img(
+                                src=user.avatar || ""
+                                upload-image-preview
+                                class="image-preview mt-3"
+                            )
+                        div(class="form-group")
+                            label(for="email") Email 
+                            input(
+                                class="form-control"
+                                type="text"
+                                id="email"
+                                name="email"
+                                value=user.email
+                                require
+                            ) 
+                        div(class="form-group")
+                            label(for="phone") Số điện thoại 
+                            input(
+                                class="form-control"
+                                type="text"
+                                id="phone"
+                                name="phone"
+                                value=user.phone
+                                require
+                            ) 
+                        div(class="form-group")
+                            label(for="oldPassword") Mật khẩu cũ
+                            input(
+                                class="form-control"
+                                type="password"
+                                id="oldPassword"
+                                name="oldPassword"
+                                value=user.password
+                                readOnly
+                                require
+                            ) 
+                        div(class="form-group")
+                            label(for="newPassword") Mật khẩu mới
+                            input(
+                                class="form-control"
+                                type="password"
+                                id="newPassword"
+                                name="newPassword"
+                                require
+                            ) 
+                        div(class="form-group float-right")
+                            button(
+                                type="text"
+                                class="btn btn-primary btn-block"
+                            ) Cập nhật
+            

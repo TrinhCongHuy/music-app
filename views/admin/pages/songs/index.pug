@@ -1,5 +1,6 @@
 extends ../../layouts/default.pug
 include ../../mixins/filterStatus.pug
+include ../../mixins/pagination.pug
 
 block main
     .card.mt-2
@@ -11,7 +12,7 @@ block main
                 .col-6 
                     //- +search(keyword)
     .card.mt-3
-        .card-header Danh sách chủ đề
+        .card-header Danh sách bài hát
         .card-body
             .row.mb-3
                 .col-8
@@ -75,7 +76,7 @@ block main
                                     button-delete 
                                     data-id=item.id
                                 ) Xoá 
-    //- +pagination(pagination)
+    +pagination(pagination)
 
     form(
         action=""

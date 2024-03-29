@@ -3,16 +3,30 @@ include ../../mixins/box-head.pug
 
 block main
     .container 
-        .row 
-            .col-12 
-                +box-head(titlePage)
+        .page-topic
+            .row 
+                .col-12 
+                    .topic-banner 
+                        swiper-container(class="mySwiper" autoplay='{"delay": 2000}' loop="true" looped-slides="3" slides-per-column="3" space-between="30" speed="800" centered-slides="true" slides-per-view="auto" free-mode="true")   
+                            swiper-slide
+                                img(src="https://photo-zmp3.zmdcdn.me/banner/c/5/f/0/c5f01e7d7fcf8dc72fafda5d5bde2d9b.jpg")
+                            swiper-slide
+                                img(src="https://photo-zmp3.zmdcdn.me/banner/7/f/5/6/7f5662aada7e4c4b8db935830f988acc.jpg")
+                            swiper-slide
+                                img(src="https://photo-zmp3.zmdcdn.me/banner/8/c/0/c/8c0ca4de49bc416d607883d66c8494b0.jpg")
+                            swiper-slide
+                                img(src="https://photo-zmp3.zmdcdn.me/banner/1/a/1/2/1a123b7e118f1dbc5487dc9cd1f84a25.jpg")
+                            swiper-slide
+                                img(src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_jpeg/cover/9/3/c/9/93c9b2ce0792713221fe14fe2f1f7b29.jpg")
+                            
 
-        .row 
-            each topic in topics
-                .col-3.mb-3 
-                    div(class="card")
-                        img(src=topic.avatar)
-                        div(class="card-body")
-                            h5(class="card-title") #{topic.title}
-                            p(class="card-text")  #{topic.description}
-                            a(href=`/songs/${topic.slug}` class="btn btn-primary") Xem chi tiết
+            .row 
+                .col-12 
+                    +box-head("Nổi bật")
+            .row 
+                each topic in topics
+                    .col-xl-3.col-lg-3.col-md-3.col-sm-4.col-6.mb-3 
+                        a(class="topic" href=`/songs/${topic.slug}`)
+                            .card-image
+                                img(src=topic.avatar)
+                            h5(class="topic-title") #{topic.title}
